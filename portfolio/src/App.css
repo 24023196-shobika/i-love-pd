@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.app {
+  color: white;
+}
+
+/* HERO SECTION */
+.hero {
+  position: relative;
+  height: 100vh;
+  background-color: #0d1b2a; /* Dark Blue background */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 60px; /* space for button at bottom */
+}
+
+/* Hero text */
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  font-size: 1.5rem;
+  opacity: 0.9;
+  margin-bottom: 40px;
+}
+
+/* Main placeholder image */
+.hero-image {
+  width: 60%;
+  height: 300px;
+  background-color: #3a6ea5; /* Medium blue placeholder */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: auto; /* push button to bottom */
+}
+
+/* Start button placeholder (center bottom) */
+.start-button {
+  position: absolute;
+  bottom: 40px; /* 40px from bottom of hero section */
+  width: 150px;
+  height: 50px;
+  background-color: #1e90ff; /* Bright blue */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  border-radius: 8px;
+}

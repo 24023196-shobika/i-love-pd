@@ -1,24 +1,31 @@
+import { useRef } from "react";
 import "./App.css";
 
 function App() {
+  const nextSectionRef = useRef(null);
+
+  // Scroll to next section when Start button is clicked
+  const handleStartClick = () => {
+    nextSectionRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="app">
-      {/* Hero Section */}
+      {/* HERO SECTION */}
       <section className="hero">
-        {/* Hero text overlay */}
-        <div className="hero-text">
-          <h1>Your Name</h1>
-          <p>Aspiring Software Engineer</p>
-        </div>
-
-        {/* Main image placeholder */}
-        <div className="hero-image">
-          HERO IMAGE HERE
-        </div>
-
         {/* Start button at bottom center */}
-        <div className="start-button">
-          START BUTTON HERE
+        <div className="start-button" onClick={handleStartClick}>
+          START
+        </div>
+      </section>
+
+      {/* NEXT SECTION WITH 2x2 BOXES */}
+      <section className="boxes-section" ref={nextSectionRef}>
+        <div className="boxes-grid">
+          <div className="box">BOX 1 - TEXT HERE</div>
+          <div className="box">BOX 2 - TEXT HERE</div>
+          <div className="box">BOX 3 - TEXT HERE</div>
+          <div className="box">BOX 4 - TEXT HERE</div>
         </div>
       </section>
     </div>

@@ -23,7 +23,7 @@ function App() {
               <div className="topRight">Profile 1</div>
 
               <div className="titleBlock">
-                <div className="titleLogo">YOUR TITLE</div>
+                <div className="titleLogo">DASARADHAN SHOBIKA</div>
                 <div className="titleSub">PORTFOLIO MENU</div>
               </div>
 

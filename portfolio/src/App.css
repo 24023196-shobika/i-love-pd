@@ -2,115 +2,489 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
 }
 
-.app {
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #0b1d33;
   color: white;
 }
 
-/* HERO SECTION */
-.hero {
-  position: relative;
-  height: 100vh; /* full viewport */
-  width: 100%;
-  background-color: #0d1b2a; /* Dark Blue background */
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
+/* ================== MAIN MENU ================== */
 
-  /* Placeholder for entire hero background */
-  background-image: url(""); /* you can replace with real image later */
+.menuPage {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* BACKGROUND */
+.bgImage {
+  position: absolute;
+  inset: 0;
+  background: #0b1d33;
   background-size: cover;
   background-position: center;
 }
 
-/* Start button placeholder (center bottom) */
-.start-button {
+.bgShade {
   position: absolute;
-  bottom: 60px; /* distance from bottom */
-  width: 300px; /* bigger button */
-  height: 120px; /* bigger button */
-  background-color: #1e90ff; /* Bright blue */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  font-size: 1.2rem;
-  cursor: pointer;
-  color: white;
-  border-radius: 10px;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(11, 29, 51, 0.92),
+    rgba(11, 29, 51, 0.65),
+    rgba(11, 29, 51, 0.35)
+  );
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
-.app {
-  color: white;
-}
-
-/* HERO SECTION */
-.hero {
+/* UI WRAPPER */
+.uiWrap {
   position: relative;
-  height: 100vh; /* full viewport */
-  width: 100%;
-  background-color: #0d1b2a; /* Dark Blue placeholder */
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-direction: column;
-}
-
-/* START BUTTON */
-.start-button {
-  position: absolute;
-  bottom: 60px;
-  width: 250px;
-  height: 70px;
-  background-color: #1e90ff; /* Bright blue */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  font-size: 1.2rem;
-  cursor: pointer;
-  color: white;
-  border-radius: 10px;
-}
-
-/* BOXES SECTION */
-.boxes-section {
+  z-index: 2;
   min-height: 100vh;
-  background-color: #000; /* Black background */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 50px;
+  padding: 40px 60px;
 }
 
-/* GRID FOR 2x2 BOXES */
-.boxes-grid {
+.topRight {
+  position: absolute;
+  top: 26px;
+  right: 60px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.titleBlock {
+  margin-top: 80px;
+}
+
+.titleLogo {
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #d4af37;
+  text-shadow: 0 0 28px rgba(212, 175, 55, 0.18);
+}
+
+.titleSub {
+  margin-top: 8px;
+  font-size: 14px;
+  letter-spacing: 6px;
+  opacity: 0.75;
+}
+
+/* MENU */
+.menuBlock {
+  position: relative;
+  margin-top: 40px;
+  width: 420px;
+}
+
+.highlight {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 48px;
+  background: rgba(212, 175, 55, 0.22);
+  border: 1px solid rgba(212, 175, 55, 0.55);
+  border-radius: 10px;
+  transition: top 0.16s;
+  box-shadow: 0 0 26px rgba(212, 175, 55, 0.14);
+}
+
+.menuItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding-left: 18px;
+  margin-bottom: 8px;
+  font-size: 16px;
+  letter-spacing: 2px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  z-index: 2;
+}
+
+.menuItem:hover {
+  color: #ffffff;
+}
+
+/* REMOVE BOTTOM HINTS */
+.bottomHints {
+  display: none;
+}
+
+/* ================== SECTIONS ================== */
+
+.sections {
+  position: relative;
+  z-index: 2;
+  padding: 60px;
+  background: #0b1d33;
+}
+
+.sectionCard {
+  margin-top: 18px;
+  padding: 22px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(212, 175, 55, 0.22);
+}
+
+.sectionHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.sectionCard h2 {
+  color: #d4af37;
+  letter-spacing: 1px;
+}
+
+.sectionSub {
+  font-size: 12px;
+  opacity: 0.75;
+}
+
+.sectionText {
+  margin-top: 14px;
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+/* ================== ABOUT ================== */
+
+.photoGrid {
+  margin-top: 16px;
   display: grid;
-  grid-template-columns: repeat(2, 300px);
-  grid-template-rows: repeat(2, 200px);
-  gap: 30px;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 }
 
-/* INDIVIDUAL BOX */
-.box {
-  background-color: #3a6ea5; /* Medium blue placeholder */
+.photoBox {
+  height: 160px;
+  border-radius: 14px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-weight: bold;
-  font-size: 1.2rem;
-  border-radius: 8px;
-  text-align: center;
+  justify-content: center;
+  font-weight: 900;
+  letter-spacing: 1px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.25);
 }
 
+/* ================== PROJECT CARDS ================== */
+
+.categoryRow {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.catCard {
+  border-radius: 16px;
+  padding: 16px;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  transition: transform 0.2s, box-shadow 0.2s, border 0.2s, background 0.2s;
+}
+
+.catCard:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.08); /* lighter blue */
+  border: 1px solid rgba(212, 175, 55, 0.55);
+  box-shadow: 0 0 28px rgba(212, 175, 55, 0.14);
+}
+
+.catTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.catTitle {
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #d4af37;
+}
+
+.catTag {
+  font-size: 12px;
+  font-weight: 900;
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: #0b1d33;
+  background: #d4af37;
+}
+
+/* FIXED: SUBTITLE COLOR */
+.catBody {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.catCard:hover .catBody {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* ================== CONTACT ================== */
+
+.contactGrid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+.contactItem {
+  border-radius: 16px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.053);
+  border: 1px solid rgba(212, 175, 55, 0.22);
+}
+
+.contactLabel {
+  font-size: 12px;
+  opacity: 0.75;
+  letter-spacing: 1px;
+}
+
+.contactValue {
+  margin-top: 8px;
+  font-weight: 900;
+  color: #d4af37;
+  letter-spacing: 0.6px;
+}
+
+/* ================== RESPONSIVE ================== */
+
+@media (max-width: 980px) {
+  .uiWrap {
+    padding: 26px 18px;
+  }
+
+  .topRight {
+    right: 18px;
+  }
+
+  .menuBlock {
+    width: 100%;
+  }
+
+  .sections {
+    padding: 30px 18px;
+  }
+
+  .titleLogo {
+    font-size: 44px;
+  }
+
+  .categoryRow {
+    grid-template-columns: 1fr;
+  }
+
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* FORCE GOOGLE FORM CARD TO STAY WHITE */
+.linkCard,
+.linkCard:visited,
+.linkCard:hover,
+.linkCard:active {
+  color: white !important;
+  text-decoration: none;
+}
+
+/* Force text inside the card */
+.linkCard .contactLabel {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.linkCard .contactValue {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* ===== UX/UI PAGE (RESUME CARD STYLE) ===== */
+
+.uxPage {
+  min-height: 100vh;
+  padding: 40px 60px;
+  background: #0b1d33;
+}
+
+.uxTop {
+  margin-bottom: 14px;
+}
+
+.uxCard {
+  border-radius: 22px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Header bar */
+.uxHeader {
+  padding: 20px 22px;
+  background: rgba(212, 175, 55, 0.10);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.18);
+}
+
+.uxName {
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #d4af37;
+}
+
+.uxRole {
+  margin-top: 6px;
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Body layout */
+.uxBody {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 18px;
+  padding: 18px;
+}
+
+/* Left image column */
+.uxLeft {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+
+.uxImg {
+  height: 140px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.88);
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.18),
+    rgba(255, 255, 255, 0.04)
+  );
+  border: 1px solid rgba(212, 175, 55, 0.20);
+}
+
+/* Right content */
+.uxRight {
+  padding: 6px 6px 12px 6px;
+}
+
+.uxSection {
+  margin-bottom: 16px;
+  padding: 14px 14px;
+  border-radius: 18px;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.uxSectionTitle {
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #d4af37;
+  margin-bottom: 10px;
+}
+
+.uxText {
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* Experience blocks */
+.uxJob {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.uxJobTitle {
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.92);
+  letter-spacing: 0.6px;
+}
+
+.uxJobMeta {
+  margin-top: 6px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 2px;
+}
+
+/* Skills grid */
+.uxSkills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.uxSkillBox {
+  border-radius: 16px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(212, 175, 55, 0.14);
+}
+
+.uxSkillTitle {
+  font-weight: 900;
+  color: #d4af37;
+  letter-spacing: 0.8px;
+  margin-bottom: 6px;
+}
+
+.uxSkillText {
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .uxPage {
+    padding: 26px 18px;
+  }
+
+  .uxBody {
+    grid-template-columns: 1fr;
+  }
+
+  .uxLeft {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .uxImg {
+    height: 120px;
+  }
+
+  .uxSkills {
+    grid-template-columns: 1fr;
+  }
+}

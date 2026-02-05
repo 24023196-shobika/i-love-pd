@@ -94,7 +94,7 @@ function App() {
 
                   <Link className="catCard" to="/web">
                     <div className="catTop">
-                      <div className="catTitle">WEB</div>
+                      <div className="catTitle">WEB and Mobile</div>
                       <div className="catTag">Open</div>
                     </div>
                     <div className="catBody">Websites, React projects, landing pages</div>

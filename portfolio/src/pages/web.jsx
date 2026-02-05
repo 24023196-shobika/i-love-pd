@@ -10,7 +10,7 @@ function Web() {
 
       <div className="uxCard">
         <div className="uxHeader">
-          <div className="uxName">Web Development</div>
+          <div className="uxName">Web and Mobile Development</div>
           <div className="uxRole">Frontend • React • Websites</div>
         </div>
 
@@ -26,7 +26,7 @@ function Web() {
             <div className="uxSection">
               <div className="uxSectionTitle">Overview</div>
               <div className="uxText">
-                This section highlights my web development projects, focusing on
+                This section highlights my web development and mobile app projects, focusing on
                 responsive design, clean UI, and functional websites.
               </div>
             </div>
